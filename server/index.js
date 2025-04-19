@@ -15,7 +15,7 @@ app.use("/",apiRouter)
 // https://www.instagram.com/p/DHOD77ot1QE/?utm_source=ig_web_copy_link
 // https://www.instagram.com/reel/DIN-VHSIM7M/?utm_source=ig_web_copy_link
 
-
 const port=process.env.Port || 3000
+app.listen(3000)
 
 module.exports = app;
