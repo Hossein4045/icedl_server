@@ -4,6 +4,18 @@ const dotenv=require("dotenv").config()
 const cors=require("cors")
 // const serverless = require('serverless-http');
 const apiRouter=require("./routes/api")
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+    
+    // برای درخواست‌های OPTIONS پاسخ فوری بدهید
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(200);
+    }
+    
+    next();
+  });
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
