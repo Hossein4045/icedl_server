@@ -8,11 +8,7 @@ const apiRouter=require("./routes/api")
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 app.use(cors());
-app.use(cors({
-  origin: ['https://icedlclient-az0b5d0m3-hossein4045s-projects.vercel.app/', 'http://localhost:3000'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.options('*', cors()); // برای همه routes
 app.use("/",apiRouter)
 // https://www.instagram.com/p/DIKhWGDxEY8/?utm_source=ig_web_copy_link
 // https://www.instagram.com/p/DId17NmCYQC/?utm_source=ig_web_copy_link
